@@ -21,7 +21,10 @@ public class Transaction {
 	
 	@Column(name = "QUANTITY")
 	private double quantity;
-
+	
+	@Column(name = "OPERATION")
+	private String operation;
+	
 	public String getId() {
 		return id;
 	}
@@ -60,6 +63,14 @@ public class Transaction {
 
 	public void setQuantity(double quantity) {
 		this.quantity = quantity;
+	}
+
+	public String getOperation() {
+		return operation;
+	}
+
+	public void setOperation(String operation) {
+		this.operation = operation;
 	}
 	
 	

@@ -8,4 +8,6 @@ import com.netas.netsm.model.Stock;
 @Repository
 public interface StockRepository extends JpaRepository<Stock, String> {
 
+	Stock findStockByCode(String code);
+
 }

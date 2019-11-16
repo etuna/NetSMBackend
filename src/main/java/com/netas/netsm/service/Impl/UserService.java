@@ -1,5 +1,7 @@
 package com.netas.netsm.service.Impl;
 
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,12 +18,7 @@ public class UserService implements IUserService {
 
 	@Override
 	public User authenticate(String username, String password) {
-
-		User user = new User();
-		
-		
-		
-		return null;
+		return userRepository.findUserByUsernameAndPassword(username, password);
 	}
 
 	@Override
@@ -32,8 +29,10 @@ public class UserService implements IUserService {
 
 	@Override
 	public Result addUser(User user) {
-		// TODO Auto-generated method stub
-		return null;
+		UUID rand = UUID.randomUUID();
+		user.setId(rand.toString());
+		userRepository.save(user);
+		return new Result("SUCCESS", "User succesfully added.");
 	}
 	
 
