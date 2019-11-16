@@ -2,9 +2,7 @@ package com.netas.netsm.service.Spec;
 
 import java.util.List;
 
-import com.netas.netsm.model.Result;
-import com.netas.netsm.model.Stock;
-import com.netas.netsm.model.StockResponseModel;
+import com.netas.netsm.model.*;
 
 
 public interface IStockService {
@@ -14,8 +12,8 @@ public interface IStockService {
 	List<StockResponseModel> getStocks();
 	Stock getStock(String stockId);
 	List<Stock> getStocksByUserId(String userId);
-	Result buyStock(String userId, String stockId, double price, double quantity);
-	Result sellStock(String userId, String stockId, double price, double quantity);
+	Result buyStock(BuyRequest buyRequest);
+	Result sellStock(SellRequest sellRequest);
 	
 	
 }

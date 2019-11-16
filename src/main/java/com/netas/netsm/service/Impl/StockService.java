@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 
 import com.netas.netsm.dao.StockRepository;
 import com.netas.netsm.dao.TransactionRepository;
+import com.netas.netsm.model.BuyRequest;
 import com.netas.netsm.model.Result;
+import com.netas.netsm.model.SellRequest;
 import com.netas.netsm.model.Stock;
 import com.netas.netsm.model.StockResponseModel;
 import com.netas.netsm.model.Transaction;
@@ -64,13 +66,13 @@ public class StockService implements IStockService {
 	}
 
 	@Override
-	public Result buyStock(String userId, String stockId, double price, double quantity) {
+	public Result buyStock(BuyRequest buyRequest) {
 		Transaction transaction = new Transaction();
 		transaction.setId((UUID.randomUUID()).toString());
-		transaction.setPrice(price);
-		transaction.setQuantity(quantity);
-		transaction.setStock(stockRepository.findStockByCode(stockId).getName());
-		transaction.setUserId(userId);
+		transaction.setPrice(buyRequest.getPrice());
+		transaction.setQuantity(buyRequest.getQuantity());
+		transaction.setStock(stockRepository.findStockByCode(buyRequest.getStockCode()).getName());
+		transaction.setUserId(buyRequest.getUserId());
 		transaction.setOperation("BUY");
 		transactionRepository.save(transaction);
 		return new Result("SUCCESS", "Stock is bought successfully.");
@@ -78,13 +80,13 @@ public class StockService implements IStockService {
 	}
 
 	@Override
-	public Result sellStock(String userId, String stockId, double price, double quantity) {
+	public Result sellStock(SellRequest sellRequest) {
 		Transaction transaction = new Transaction();
 		transaction.setId((UUID.randomUUID()).toString());
-		transaction.setPrice(price);
-		transaction.setQuantity(quantity);
-		transaction.setStock(stockRepository.findStockByCode(stockId).getName());
-		transaction.setUserId(userId);
+		transaction.setPrice(sellRequest.getPrice());
+		transaction.setQuantity(sellRequest.getQuantity());
+		transaction.setStock(stockRepository.findStockByCode(sellRequest.getStockCode()).getName());
+		transaction.setUserId(sellRequest.getUserId());
 		transaction.setOperation("SELL");
 		transactionRepository.save(transaction);
 		return new Result("SUCCESS", "Stock is sold successfully.");
