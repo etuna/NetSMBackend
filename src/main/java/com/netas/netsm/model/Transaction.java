@@ -6,6 +6,7 @@ import javax.persistence.*;
 public class Transaction {
 
 	@Id()
+	@GeneratedValue
 	@Column(name = "ID")
 	private String id;
 	

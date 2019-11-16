@@ -6,6 +6,7 @@ import javax.persistence.*;
 public class Stock {
 
 	@Id
+	@GeneratedValue
 	@Column(name = "CODE")
 	private String code;
 	

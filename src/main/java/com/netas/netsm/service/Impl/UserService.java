@@ -26,8 +26,8 @@ public class UserService implements IUserService {
 
 	@Override
 	public Result delUser(String id) {
-		// TODO Auto-generated method stub
-		return null;
+		userRepository.deleteById(id);
+		return new Result("SUCCESS", "User succesfully deleted.");
 	}
 
 	@Override

@@ -20,8 +20,8 @@ public class UserController {
 		return userService.authenticate(username, password);
 	}
 	
-	@GetMapping("delete")
-	public Result delUser(@RequestParam("id") String id) {
+	@GetMapping("delete/{id}")
+	public Result delUser(@PathVariable("id") String id) {
 		return userService.delUser(id);
 	}
 	
