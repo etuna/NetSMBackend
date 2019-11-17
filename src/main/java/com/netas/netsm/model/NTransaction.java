@@ -3,28 +3,28 @@ package com.netas.netsm.model;
 import javax.persistence.*;
 
 @Entity
-public class Transaction {
+public class NTransaction {
 
 	@Id()
 	@GeneratedValue
 	@Column(name = "ID")
 	private String id;
-	
-	@Column(name= "USER_ID")
-	private String userId;
-	
-	@Column(name = "STOCK")
-	private String stock;
-	
-	@Column(name= "PRICE")
-	private double price;
-	
-	@Column(name = "QUANTITY")
-	private double quantity;
-	
+
 	@Column(name = "OPERATION")
 	private String operation;
-	
+
+	@Column(name = "PRICE")
+	private int price;
+
+	@Column(name = "QUANTITY")
+	private int quantity;
+
+	@Column(name = "STOCK")
+	private String stock;
+
+	@Column(name = "USER_ID")
+	private String userId;
+
 	public String getId() {
 		return id;
 	}
@@ -49,19 +49,19 @@ public class Transaction {
 		this.stock = stock;
 	}
 
-	public double getPrice() {
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(double price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
 
-	public double getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(double quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
@@ -72,9 +72,5 @@ public class Transaction {
 	public void setOperation(String operation) {
 		this.operation = operation;
 	}
-	
-	
-	
-	
-	
+
 }

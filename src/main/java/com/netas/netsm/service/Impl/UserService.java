@@ -1,5 +1,6 @@
 package com.netas.netsm.service.Impl;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,11 @@ public class UserService implements IUserService {
 		user.setId(rand.toString());
 		userRepository.save(user);
 		return new Result("SUCCESS", "User succesfully added.");
+	}
+
+	public List<User> getAllUsers() {
+		return userRepository.findAll();
+		
 	}
 	
 

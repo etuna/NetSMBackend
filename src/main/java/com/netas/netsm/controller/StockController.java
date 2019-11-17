@@ -3,6 +3,7 @@ package com.netas.netsm.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,12 +17,14 @@ import com.netas.netsm.model.Result;
 import com.netas.netsm.model.SellRequest;
 import com.netas.netsm.model.Stock;
 import com.netas.netsm.model.StockResponseModel;
+import com.netas.netsm.model.NTransaction;
 import com.netas.netsm.model.User;
 import com.netas.netsm.service.Impl.StockService;
 import com.netas.netsm.service.Impl.UserService;
 
 @RestController
 @RequestMapping("stock")
+@CrossOrigin(origins = "*")
 public class StockController {
 
 	@Autowired
@@ -48,7 +51,7 @@ public class StockController {
 	}
 
 	@GetMapping("all/{id}")
-	public List<Stock> getStocksByUserId(@PathVariable("id") String id) {
+	public List<NTransaction> getStocksByUserId(@PathVariable("id") String id) {
 		return stockService.getStocksByUserId(id);
 	}
 	

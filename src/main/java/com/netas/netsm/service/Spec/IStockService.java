@@ -11,7 +11,7 @@ public interface IStockService {
 	Result delStock(String stockId);
 	List<StockResponseModel> getStocks();
 	Stock getStock(String stockId);
-	List<Stock> getStocksByUserId(String userId);
+	List<NTransaction> getStocksByUserId(String userId);
 	Result buyStock(BuyRequest buyRequest);
 	Result sellStock(SellRequest sellRequest);
 	

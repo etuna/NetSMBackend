@@ -10,7 +10,7 @@ import com.netas.netsm.model.Result;
 import com.netas.netsm.model.SellRequest;
 import com.netas.netsm.model.Stock;
 import com.netas.netsm.model.StockResponseModel;
-import com.netas.netsm.model.Transaction;
+import com.netas.netsm.model.NTransaction;
 import com.netas.netsm.service.Spec.IStockService;
 
 import java.util.ArrayList;
@@ -61,13 +61,13 @@ public class StockService implements IStockService {
 	}
 
 	@Override
-	public List<Stock> getStocksByUserId(String userId) {
+	public List<NTransaction> getStocksByUserId(String userId) {
 		return transactionRepository.findTransactionByUserId(userId);
 	}
 
 	@Override
 	public Result buyStock(BuyRequest buyRequest) {
-		Transaction transaction = new Transaction();
+		NTransaction transaction = new NTransaction();
 		transaction.setId((UUID.randomUUID()).toString());
 		transaction.setPrice(buyRequest.getPrice());
 		transaction.setQuantity(buyRequest.getQuantity());
@@ -81,7 +81,7 @@ public class StockService implements IStockService {
 
 	@Override
 	public Result sellStock(SellRequest sellRequest) {
-		Transaction transaction = new Transaction();
+		NTransaction transaction = new NTransaction();
 		transaction.setId((UUID.randomUUID()).toString());
 		transaction.setPrice(sellRequest.getPrice());
 		transaction.setQuantity(sellRequest.getQuantity());

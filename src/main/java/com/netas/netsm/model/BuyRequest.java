@@ -4,8 +4,8 @@ public class BuyRequest {
 
 	private String userId;
 	private String stockCode;
-	private double price;
-	private double quantity;
+	private int price;
+	private int quantity;
 	public String getUserId() {
 		return userId;
 	}
@@ -18,16 +18,16 @@ public class BuyRequest {
 	public void setStockCode(String stockCode) {
 		this.stockCode = stockCode;
 	}
-	public double getPrice() {
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(double price) {
+	public void setPrice(int price) {
 		this.price = price;
 	}
-	public double getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
-	public void setQuantity(double quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 	
